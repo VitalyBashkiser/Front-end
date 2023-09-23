@@ -8,6 +8,22 @@ To run this project, follow these steps:
 npm install
 ```
 
-2. Start the application:
+2. Build the Docker image:
 
-npm run serve
+```
+docker build -t my-vue-app .
+```
+
+3. Run the Docker container:
+
+```
+docker run -p 8080:8080 my-vue-app
+```
+
+Now you can access your Vue.js application at `http://localhost:8080`.
+
+
+
+
+
+

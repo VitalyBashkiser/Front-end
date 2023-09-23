@@ -1,0 +1,13 @@
+# Node.js ignore
+front-end/node_modules
+npm-debug.log
+
+#Git
+.git
+
+#enviropments
+.env
+env/
+.venv
+venv/
+
