@@ -1,23 +1,23 @@
 # Use an official Node runtime as base image
 FROM node:14
 
-# Устанавливаем рабочую директорию
+# Set the working directory
 WORKDIR .
 
-# Копируем зависимости
+# Copy dependencies
 COPY package*.json ./
 
-# Устанавливаем зависимости
+# Install dependencies
 RUN npm install
 
-# Копируем все файлы в текущую директорию
+# Copy all files to the current directory
 COPY . .
 
-# Опционально: сборка приложения
-# RUN npm run build
+# Optional: build the application
+RUN npm run build
 
-# Опционально: устанавливаем веб-сервер, если приложение не использует history mode
-# RUN npm install -g serve
+# Optional: install the web server if the application does not use history mode
+RUN npm install -g serve
 
-# Опционально: запускаем приложение
-# CMD [ "serve", "-s", "dist" ]
+# Optional: run the application
+CMD [ "serve", "-s", "dist" ]

@@ -1,13 +1,12 @@
 # Node.js ignore
-front-end/node_modules
-npm-debug.log
+
 
 #Git
 .git
 
 #enviropments
-.env
+front-end/.env
 env/
 .venv
-venv/
+../venv/
 
