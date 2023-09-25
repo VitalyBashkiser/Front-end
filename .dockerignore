@@ -1,5 +1,5 @@
 # Node.js ignore
-
+node_modules
 
 #Git
 .git
