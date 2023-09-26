@@ -1,0 +1,12 @@
+# Node.js ignore
+node_modules
+
+#Git
+.git
+
+#enviropments
+front-end/.env
+env/
+.venv
+./venv/
+

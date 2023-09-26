@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  front-end:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/usr/src/front-end
+    command: npm run serve -- --host 0.0.0.0
