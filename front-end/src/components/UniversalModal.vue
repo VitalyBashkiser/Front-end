@@ -1,25 +1,37 @@
 <template>
-  <div class="universal-modal">
-    <div class="modal-content">
-      <h2>{{ title }}</h2>
-
-      <slot></slot>
-
-      <button @click="closeModal">Close</button>
-    </div>
+  <div>
+    <!-- ... -->
+    <UniversalModal :title="modalTitle" @close="closeModal">
+      <!-- Contents of the modal window -->
+    </UniversalModal>
+    <!-- ... -->
   </div>
+      <h2>{{ title }}</h2>
+      <slot></slot>
+      <button @click="closeModal">Close</button>
 </template>
 
 <script>
+import UniversalModal from '@/components/UniversalModal.vue';
+
 export default {
-  props: {
-    title: String
+  components: {
+    UniversalModal,
+  },
+  data() {
+    return {
+      modalTitle: 'Modal window title',
+      // ...
+    };
   },
   methods: {
+    openModal() {
+      // Logic for opening a modal window
+    },
     closeModal() {
-      this.$emit('close');
-    }
-  }
+      // Logic for closing the modal window
+    },
+  },
 };
 </script>
 
