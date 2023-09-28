@@ -6,12 +6,11 @@
     <!-- Modal Window -->
     <UniversalModal
       :title="modalState.title"
-      v-if="modalState.visible"
+      :visible="modalState.visible"
       @close="closeModal"
     >
       <!-- The contents of the modal window -->
       <p>This is the content of the modal window</p>
-      <button @click="closeModal">Close</button>
     </UniversalModal>
   </div>
 </template>

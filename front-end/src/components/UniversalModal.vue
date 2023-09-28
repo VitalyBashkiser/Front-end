@@ -1,28 +1,30 @@
 <template>
-  <div>
-    <!-- ... -->
-    <UniversalModal :title="modalTitle" @close="closeModal">
-      <!-- Contents of the modal window -->
-    </UniversalModal>
-    <!-- ... -->
-  </div>
+  <div v-if="visible" class="universal-modal">
+    <div class="modal-content">
       <h2>{{ title }}</h2>
       <slot></slot>
       <button @click="closeModal">Close</button>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
-    title: String // Props title, expected string.
+    title: String,
+    visible: Boolean // Add props to control the visibility of the modal window
   },
   methods: {
     closeModal() {
-      this.$emit('close'); //calls the 'close' event when the 'Close' button is clicked.
+      this.$emit('close');
     }
   }
 };
 </script>
+
+<style scoped>
+/* Styles remain unchanged */
+</style>
 
 <style scoped>
 .universal-modal {
