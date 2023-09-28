@@ -12,26 +12,15 @@
 </template>
 
 <script>
-import UniversalModal from '@/components/UniversalModal.vue';
-
 export default {
-  components: {
-    UniversalModal,
-  },
-  data() {
-    return {
-      modalTitle: 'Modal window title',
-      // ...
-    };
+  props: {
+    title: String // Props title, expected string.
   },
   methods: {
-    openModal() {
-      // Logic for opening a modal window
-    },
     closeModal() {
-      // Logic for closing the modal window
-    },
-  },
+      this.$emit('close'); //calls the 'close' event when the 'Close' button is clicked.
+    }
+  }
 };
 </script>
 
