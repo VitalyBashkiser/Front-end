@@ -1,15 +1,15 @@
 <template>
-  <div>
-    <!-- Содержимое шаблона CompanyList -->
-  </div>
+   <div>
+     <!-- Contents of the CompanyList template -->
+   </div>
 </template>
 
 <script>
 export default {
-  // Логика компонента CompanyList
+   // Logic of the CompanyList component
 };
 </script>
 
 <style scoped>
-/* Стили компонента CompanyList */
+/* CompanyList component styles */
 </style>

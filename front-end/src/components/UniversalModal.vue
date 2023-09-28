@@ -1,23 +1,24 @@
 <template>
-  <div class="universal-modal">
-    <div class="modal-content">
-      <h2>{{ title }}</h2>
-
-      <slot></slot>
-
-      <button @click="closeModal">Close</button>
-    </div>
+  <div>
+    <!-- ... -->
+    <UniversalModal :title="modalTitle" @close="closeModal">
+      <!-- Contents of the modal window -->
+    </UniversalModal>
+    <!-- ... -->
   </div>
+      <h2>{{ title }}</h2>
+      <slot></slot>
+      <button @click="closeModal">Close</button>
 </template>
 
 <script>
 export default {
   props: {
-    title: String
+    title: String // Props title, expected string.
   },
   methods: {
     closeModal() {
-      this.$emit('close');
+      this.$emit('close'); //calls the 'close' event when the 'Close' button is clicked.
     }
   }
 };

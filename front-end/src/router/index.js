@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { ref } from 'vue';
+import { openUniversalModal } from './/utils';
 import UniversalModal from '@/components/UniversalModal.vue'
 import AboutPage from '@/components/AboutPage.vue';
 import UserRegistration from '@/components/UserRegistration.vue';
@@ -14,12 +15,6 @@ const universalModal = ref({
   title: '',
   visible: false
 });
-
-// Function to open UniversalModal
-function openUniversalModal(title) {
-  universalModal.value.title = title;
-  universalModal.value.visible = true;
-}
 
 // Define routes inside a ref
 const routes = ref([
@@ -60,4 +55,4 @@ const router = createRouter({
 
 export default router;
 
-export { universalModal, openUniversalModal, UniversalModal };
+export { universalModal, UniversalModal, openUniversalModal };

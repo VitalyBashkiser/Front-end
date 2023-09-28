@@ -4,10 +4,14 @@
     <button @click="openModal">Open Modal Window</button>
 
     <!-- Modal Window -->
-    <UniversalModal :title="modalState.title" v-if="modalState.visible" @close="modalState.visible = false">
+    <UniversalModal
+      :title="modalState.title"
+      v-if="modalState.visible"
+      @close="closeModal"
+    >
       <!-- The contents of the modal window -->
       <p>This is the content of the modal window</p>
-      <button @click="modalState.visible = false">Close</button>
+      <button @click="closeModal">Close</button>
     </UniversalModal>
   </div>
 </template>
@@ -31,6 +35,13 @@ export default {
     openModal() {
       this.modalState.visible = true;
     },
+    closeModal() {
+      this.modalState.visible = false;
+    },
   },
 };
 </script>
+
+<style scoped>
+/* Styles for AboutPage component */
+</style>
