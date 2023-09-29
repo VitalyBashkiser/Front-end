@@ -9,7 +9,6 @@
       :visible="modalState.visible"
       @close="closeModal"
     >
-      <!-- The contents of the modal window -->
       <p>This is the content of the modal window</p>
     </UniversalModal>
   </div>
