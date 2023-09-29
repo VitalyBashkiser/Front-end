@@ -3,17 +3,14 @@
     <h1>About Page</h1>
     <button @click="openModal">Open Modal Window</button>
 
-    <!-- Modal Window -->
     <UniversalModal
       :title="modalState.title"
       :visible="modalState.visible"
       @close="closeModal"
     >
-      <!-- The contents of the modal window -->
       <p>This is the content of the modal window</p>
     </UniversalModal>
 
-    <!-- New button for Health Check -->
     <button @click="checkHealth">Check Health</button>
   </div>
 </template>

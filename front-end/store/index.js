@@ -7,14 +7,14 @@ export default createStore({
   getters: {
     getTestString: state => state.testString,
   },
+  actions: {
+  updateTestString: ({ commit }, newString) => {
+    commit('setTestString', newString);
+    },
+  },
   mutations: {
     setTestString: (state, newString) => {
       state.testString = newString;
-    },
-  },
-  actions: {
-    updateTestString: ({ commit }, newString) => {
-      commit('setTestString', newString);
     },
   },
 });

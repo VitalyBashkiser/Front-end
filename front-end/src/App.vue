@@ -8,22 +8,21 @@
 
     <img alt="Vue logo" src="@/assets/logo.png">
     <router-view />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <InfoSomething msg="Welcome to Your Vue.js App" />
 
-    <!-- Integrated TestComponent -->
-    <TestComponent />
+    <TestAnything />
   </div>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
-import TestComponent from './components/TestComponent.vue'
+import InfoSomething from '@/components/InfoSomething.vue'
+import TestAnything from '@/components/TestAnything.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    TestComponent // Added TestComponent here
+    InfoSomething,
+    TestAnything
   },
   data() {
     return {
