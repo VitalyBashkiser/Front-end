@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-modal"> <!-- Modify the class to improve code readability -->
+  <div class="custom-modal">
     <div class="modal-content">
       <slot></slot>
       <button @click="closeModal">Close</button>

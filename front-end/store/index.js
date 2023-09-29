@@ -4,8 +4,12 @@ export default createStore({
   state: {
     testString: 'Hello, Vuex!',
   },
-  getters: {
-    getTestString: state => state.testString,
+    getters: {
+    getTestString: (state) => state.testString,
+  },
+    actions: {
+    updateTestString: ({ commit }, newString) => {
+      commit('setTestString', newString);
   },
   actions: {
   updateTestString: ({ commit }, newString) => {
@@ -18,4 +22,5 @@ export default createStore({
     },
   },
 });
+
 
