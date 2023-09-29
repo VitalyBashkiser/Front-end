@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- Contents of the CompanyProfile template -->
+
   </div>
 </template>
 

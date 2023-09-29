@@ -1,6 +1,6 @@
 <template>
    <div>
-     <!-- Contents of the CompanyList template -->
+
    </div>
 </template>
 

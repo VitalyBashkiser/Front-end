@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- UserList template content -->
+
   </div>
 </template>
 
