@@ -11,6 +11,11 @@ export default createStore({
     updateTestString: ({ commit }, newString) => {
       commit('setTestString', newString);
   },
+  actions: {
+  updateTestString: ({ commit }, newString) => {
+    commit('setTestString', newString);
+    },
+  },
   mutations: {
     setTestString: (state, newString) => {
       state.testString = newString;
