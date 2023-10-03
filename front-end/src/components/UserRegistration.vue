@@ -1,14 +1,21 @@
 <template>
-  <div>
-    <input v-model="email" @blur="validateEmail" placeholder="Email" />
-    <span v-if="emailError">{{ emailError }}</span>
+  <form @submit.prevent="register">
+    <div>
+      <input v-model="email" @blur="validateEmail" placeholder="Email" />
+      <span v-if="emailError">{{ emailError }}</span>
+    </div>
 
-    <input v-model="password" placeholder="Password" type="password" />
-    <input v-model="confirmPassword" @blur="validatePassword" placeholder="Confirm Password" type="password" />
-    <span v-if="passwordError">{{ passwordError }}</span>
+    <div>
+      <input v-model="password" placeholder="Password" type="password" />
+    </div>
 
-    <button @click="register">Register</button>
-  </div>
+    <div>
+      <input v-model="confirmPassword" @blur="validatePassword" placeholder="Confirm Password" type="password" />
+      <span v-if="passwordError">{{ passwordError }}</span>
+    </div>
+
+    <button type="submit">Register</button>
+  </form>
 </template>
 
 <script>
@@ -22,22 +29,23 @@ export default {
       passwordError: '',
     };
   },
-  methods: {
-    validateEmail() {
-      if (!this.email.includes('@')) {
-        this.emailError = 'Invalid email address';
-      } else {
-        this.emailError = '';
-      }
-    },
-    validatePassword() {
-      if (this.password !== this.confirmPassword) {
-        this.passwordError = 'Passwords do not match';
-      } else {
-        this.passwordError = '';
-      }
-    },
-    register() {
+methods: {
+  validateEmail() {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.email)) {
+      this.emailError = 'Invalid email format';
+    } else {
+      this.emailError = '';
+    }
+  },
+  validatePassword() {
+    if (this.password.length < 8) {
+      this.passwordError = 'Password must be at least 8 characters long';
+    } else {
+      this.passwordError = '';
+    }
+  },
+  register() {
       // Realization of registration
     },
   },
