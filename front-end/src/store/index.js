@@ -1,25 +1,43 @@
 import { createStore } from 'vuex';
+import { getUsers } from '@/services/userService';
+import usersModule from './users';
 
 export default createStore({
+  modules: {
+    users: usersModule,
+  },
   state: {
     testString: 'Hello, Vuex!',
-    user: null, // Add a property to store user data
+    user: null,
+    users: [],
   },
   getters: {
     getTestString: state => state.testString,
-    getUser: state => state.user, // Getter for user data retrieval
+    getUser: state => state.user,
+    getUsers: state => state.users,
   },
   actions: {
     updateTestString: ({ commit }, newString) => {
-      commit('setTestString', newString);
+      commit('SET_TEST_STRING', newString);
+    },
+    async fetchUsers({ commit }) {
+      try {
+        const users = await getUsers();
+        commit('SET_USERS', users);
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
     },
   },
   mutations: {
-    setTestString: (state, newString) => {
+    SET_TEST_STRING: (state, newString) => {
       state.testString = newString;
     },
-    setUser: (state, user) => {
+    SET_USER: (state, user) => {
       state.user = user;
+    },
+    SET_USERS: (state, users) => {
+      state.users = users;
     },
   },
 });
