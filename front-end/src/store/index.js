@@ -30,14 +30,15 @@ export default createStore({
     },
   },
   mutations: {
-    SET_TEST_STRING: (state, newString) => {
+    setTestString: (state, newString) => {
       state.testString = newString;
     },
-    SET_USER: (state, user) => {
+    setUser: (state, user) => {
       state.user = user;
     },
-    SET_USERS: (state, users) => {
+    setUsers: (state, users) => {
       state.users = users;
     },
   },
 });
+
