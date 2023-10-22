@@ -16,7 +16,6 @@ const actions = {
       commit('SET_SELECTED_USER', user);
     } catch (error) {
       console.error('Error fetching user by ID:', error);
-      // Handle error
     }
   },
 
@@ -26,7 +25,6 @@ const actions = {
       commit('SET_SELECTED_USER', updatedUser);
     } catch (error) {
       console.error('Error updating user information:', error);
-      // Handle error
     }
   },
 
@@ -36,7 +34,6 @@ const actions = {
       commit('SET_SELECTED_USER', null); // Clear selected user after deletion
     } catch (error) {
       console.error('Error deleting user:', error);
-      // Handle error
     }
   },
 
@@ -46,7 +43,6 @@ const actions = {
       commit('SET_SELECTED_USER', null); // Clear selected user after deletion
     } catch (error) {
       console.error('Error deleting user profile:', error);
-      // Handle error
     }
   },
 
