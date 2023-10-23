@@ -1,10 +1,12 @@
 import { createStore } from 'vuex';
 import { getUsers } from '@/services/userService';
 import usersModule from './users';
+import companiesModule from './companies';
 
 export default createStore({
   modules: {
     users: usersModule,
+    companies: companiesModule,
   },
   state: {
     testString: 'Hello, Vuex!',
