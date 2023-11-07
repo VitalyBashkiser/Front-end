@@ -1,4 +1,4 @@
-import { getUserById } from '@/services/userService';
+import { getUserById, updateUser, deleteUserById, deleteUserProfile } from '@/services/userService';
 
 const state = {
   selectedUser: null,
@@ -21,7 +21,7 @@ const actions = {
 
   async updateUserInformation({ commit }, userData) {
     try {
-      const updatedUser = await updateUser(userData);
+      const updatedUser = await updateUser(userData); // Added updateUser function
       commit('SET_SELECTED_USER', updatedUser);
     } catch (error) {
       console.error('Error updating user information:', error);
@@ -30,7 +30,7 @@ const actions = {
 
   async deleteUserById({ commit }, userId) {
     try {
-      await deleteUserById(userId);
+      await deleteUserById(userId); // Added deleteUserById function
       commit('SET_SELECTED_USER', null); // Clear selected user after deletion
     } catch (error) {
       console.error('Error deleting user:', error);
@@ -39,7 +39,7 @@ const actions = {
 
   async deleteUserProfile({ commit }, userId) {
     try {
-      await deleteUserProfile(userId);
+      await deleteUserProfile(userId); // Added deleteUserProfile function
       commit('SET_SELECTED_USER', null); // Clear selected user after deletion
     } catch (error) {
       console.error('Error deleting user profile:', error);
