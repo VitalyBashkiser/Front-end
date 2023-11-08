@@ -1,10 +1,15 @@
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:8000/api/users/';
+const API_URL = '/api/users/';
 
 async function getUserById(userId) {
-  const response = await axios.get(`${API_URL}${userId}`);
-  return response.data;
+  try {
+    const response = await instance.get(`${API_URL}${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getting user by ID:', error);
+    throw error;
+  }
 }
 
 async function updateUser(userData) {
