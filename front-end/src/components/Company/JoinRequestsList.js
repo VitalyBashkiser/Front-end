@@ -1,3 +1,15 @@
+<template>
+  <ul>
+    <li v-for="request in joinRequests" :key="request.id">
+      {{ request.email }}
+      <button @click="handleAcceptRequest(request.id)">Accept</button>
+      <button @click="handleCancelRequest(request.id)">Cancel</button>
+      <button @click="handleRejectRequest(request.id)">Reject</button>
+    </li>
+  </ul>
+</template>
+
+<script>
 import { mapState } from 'vuex';
 
 export default {
@@ -17,19 +29,5 @@ export default {
       // Logic to reject request with ID requestId
     },
   },
-  render() {
-    return (
-      <ul>
-        {/* Map through join requests and display each */}
-        {this.joinRequests.map((request) => (
-          <li key={request.id}>
-            {request.email}
-            <button onClick={() => this.handleAcceptRequest(request.id)}>Accept</button>
-            <button onClick={() => this.handleCancelRequest(request.id)}>Cancel</button>
-            <button onClick={() => this.handleRejectRequest(request.id)}>Reject</button>
-          </li>
-        ))}
-      </ul>
-    );
-  },
 };
+</script>
