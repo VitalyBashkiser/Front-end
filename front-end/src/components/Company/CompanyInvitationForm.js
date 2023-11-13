@@ -1,6 +1,5 @@
 <template>
   <form @submit.prevent="handleSendInvitation">
-    <!-- Form fields for invitation (e.g., email, message) -->
     <input v-model="email" type="email" placeholder="Email" />
     <textarea v-model="message" placeholder="Message"></textarea>
     <button type="submit">Send Invitation</button>

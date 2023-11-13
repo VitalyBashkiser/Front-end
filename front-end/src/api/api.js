@@ -1,8 +1,10 @@
-import instance from 'axios';
+import { axiosInstance } from 'axios';
 
 async function checkHealth() {
   try {
-    const { data } = await instance.get('health_check/');
+    const response = await axiosInstance.get('/health');
+    console.log('Health Check Response:', response);
+    const { data } = await axiosInstance.get('health_check/');
     console.log('Health Check Response:', data);
     return data;
   } catch (error) {

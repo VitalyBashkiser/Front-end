@@ -13,18 +13,12 @@ export default {
       // Logic to accept invitation with ID invitationId
     },
   },
-  render() {
-    return (
-      <ul>
-        {/* Map through invitations and display each */}
-        {this.invitations.map((invitation) => (
-          <li key={invitation.id}>
-            {invitation.email}
-            <button onClick={() => this.handleCancelInvitation(invitation.id)}>Cancel</button>
-            <button onClick={() => this.handleAcceptInvitation(invitation.id)}>Accept</button>
-          </li>
-        ))}
-      </ul>
-    );
-  },
+  template:
+    <ul>
+      <li v-for="invitation in invitations" :key="invitation.id">
+        {{ invitation.email }}
+        <button @click="handleCancelInvitation(invitation.id)">Cancel</button>
+        <button @click="handleAcceptInvitation(invitation.id)">Accept</button>
+      </li>
+    </ul>
 };
