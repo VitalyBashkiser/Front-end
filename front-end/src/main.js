@@ -16,7 +16,7 @@ const i18n = createI18n({
     },
     uk: {
       // Here we place translations for Ukrainian language
-      greeting: 'Hello!',
+      greeting: 'Привіт!',
       // ...
     },
   },
