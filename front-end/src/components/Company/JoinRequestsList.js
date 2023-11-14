@@ -2,9 +2,15 @@
   <ul>
     <li v-for="request in joinRequests" :key="request.id">
       {{ request.email }}
-      <button @click="handleAcceptRequest(request.id)">Accept Join Request</button>
-      <button @click="handleCancelRequest(request.id)">Cancel Join Request</button>
-      <button @click="handleRejectRequest(request.id)">Reject Join Request</button>
+      <button @click="handleAcceptRequest(request.id)">
+        {{ $t('acceptJoinRequest') }}
+      </button>
+      <button @click="handleCancelRequest(request.id)">
+        {{ $t('cancelJoinRequest') }}
+      </button>
+      <button @click="handleRejectRequest(request.id)">
+        {{ $t('rejectJoinRequest') }}
+      </button>
     </li>
   </ul>
 </template>

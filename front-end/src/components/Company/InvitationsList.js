@@ -2,8 +2,12 @@
   <ul>
     <li v-for="invitation in invitations" :key="invitation.id">
       {{ invitation.email }}
-      <button @click="handleCancelInvitation(invitation.id)">Cancel Invitation</button>
-      <button @click="handleAcceptInvitation(invitation.id)">Accept Invitation</button>
+      <button @click="handleCancelInvitation(invitation.id)">
+        {{ $t('cancelInvitation') }}
+      </button>
+      <button @click="handleAcceptInvitation(invitation.id)">
+        {{ $t('acceptInvitation') }}
+      </button>
     </li>
   </ul>
 </template>
