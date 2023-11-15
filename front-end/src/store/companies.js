@@ -1,4 +1,4 @@
-import { createCompany } from '@/services/companyService';
+import { createCompany, getCompaniesFromBackend } from '@/services/companyService';
 
 const state = {
   companies: [],
@@ -9,10 +9,10 @@ const getters = {
 };
 
 const actions = {
-  async loadCompanies({ commit }) { // Rename the method for loading companies
+  async loadCompanies({ commit }) {
     try {
       const companies = await getCompaniesFromBackend(); // Use the function to get companies
-      commit('SET_COMPANIES', companies); // Use mutation to set companies to state
+      commit('SET_COMPANIES', companies);
     } catch (error) {
       console.error('Error loading companies:', error);
       throw error;
