@@ -24,6 +24,16 @@ const i18n = createI18n({
       acceptJoinRequest: 'Accept Join Request',
       rejectJoinRequest: 'Reject Join Request',
       removeAdmin: 'Remove Admin',
+      quiz: {
+        companyQuizzes: 'Company Quizzes',
+        createQuiz: 'Create Quiz',
+        takeQuiz: 'Take Quiz',
+        title: 'Title',
+        description: 'Description',
+        frequency: 'Frequency',
+        addQuestion: 'Add Question',
+        createQuiz: 'Create Quiz'
+      }
       // ... other keys and values for English
     },
     uk: {
@@ -41,6 +51,16 @@ const i18n = createI18n({
       acceptJoinRequest: 'Прийняти запит на вступ',
       rejectJoinRequest: 'Відхилити запит на вступ',
       removeAdmin: 'Видалити адміністратора',
+      quiz: {
+        companyQuizzes: 'Квізи компанії',
+        createQuiz: 'Створити квіз',
+        takeQuiz: 'Пройти квіз',
+        title: 'Назва',
+        description: 'Опис',
+        frequency: 'Частота',
+        addQuestion: 'Додати питання',
+        createQuiz: 'Створити квіз'
+      }
       // ... other keys and values for Ukrainian
     },
   },
