@@ -1,0 +1,75 @@
+<template>
+  <div>
+    //Dropdown to change language
+    <select v-model="selectedLanguage" @change="changeLanguage">
+      <option value="en">English</option>
+      <option value="uk">Ukrainian</option>
+    </select>
+
+    <h1>{{ $t('quiz.companyQuizzes') }}</h1>
+    <button @click="openCreateQuizModal">{{ $t('quiz.createQuiz') }}</button>
+
+    //List of available quizzes
+    <ul>
+      <li v-for="quiz in quizzes" :key="quiz.id">
+        <h3>{{ quiz.title }}</h3>
+        <p>{{ quiz.description }}</p>
+        //Display other quiz details
+        <button @click="takeQuiz(quiz.id)">{{ $t('quiz.takeQuiz') }}</button>
+      </li>
+    </ul>
+
+    //Include the CreateQuizModal component
+    <CreateQuizModal v-if="showCreateQuizModal" @close="closeCreateQuizModal" />
+  </div>
+</template>
+
+<script>
+import CreateQuizModal from './CreateQuizModal.vue'; // Import the CreateQuizModal component
+import axios from 'axios'; // Import axios for making HTTP requests
+
+export default {
+  data() {
+    return {
+      selectedLanguage: this.$i18n.locale,
+      showCreateQuizModal: false,
+      quizzes: [] // Fetch quizzes data from backend and populate this array
+    };
+  },
+  components: {
+    CreateQuizModal // Register the CreateQuizModal component
+  },
+  methods: {
+    changeLanguage() {
+      this.$i18n.locale = this.selectedLanguage; // Change the language based on selection
+    },
+    openCreateQuizModal() {
+      this.showCreateQuizModal = true;
+    },
+    closeCreateQuizModal() {
+      this.showCreateQuizModal = false;
+    },
+    // Fetch quizzes data from backend API
+    // This method can be triggered on component mount or whenever needed
+    fetchQuizzes() {
+      axios.get('/api/quizzes/') // Assuming this endpoint returns the list of quizzes
+        .then(response => {
+          this.quizzes = response.data;
+        })
+        .catch(error => {
+          console.error('Error fetching quizzes', error);
+        });
+    },
+    takeQuiz(quizId) {
+      // Logic to take the quiz and send data to the server
+      // Redirect the user to the company page after completing the quiz
+      // Implementation of this functionality will depend on your backend API
+      console.log('Taking quiz with ID:', quizId);
+      // Assuming some logic to send quiz data to the server and handle the response
+    }
+  },
+  mounted() {
+    this.fetchQuizzes(); // Fetch quizzes data on component mount
+  }
+};
+</script>
