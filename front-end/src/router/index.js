@@ -45,9 +45,10 @@ const routes = ref([
     component: CompanyList
   },
   {
-    path: '/company-profile',
-    component: CompanyProfile
-  }
+    path: '/company-profile/:id',
+    name: 'company-profile',
+    component: CompanyProfile,
+  },
 ]);
 
 const router = createRouter({

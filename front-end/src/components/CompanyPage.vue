@@ -6,16 +6,19 @@
       <option value="uk">Ukrainian</option>
     </select>
 
-    <h1>Company Quizzes</h1>
-    <button @click="openCreateQuizModal">Create Quiz</button>
+    <h1>{{ $t('quiz.companyQuizzes') }}</h1>
+    <button @click="openCreateQuizModal">{{ $t('quiz.createQuiz') }}</button>
+
     //List of available quizzes
     <ul>
       <li v-for="quiz in quizzes" :key="quiz.id">
         <h3>{{ quiz.title }}</h3>
         <p>{{ quiz.description }}</p>
         //Display other quiz details
+        <button @click="takeQuiz(quiz.id)">{{ $t('quiz.takeQuiz') }}</button>
       </li>
     </ul>
+
     //Include the CreateQuizModal component
     <CreateQuizModal v-if="showCreateQuizModal" @close="closeCreateQuizModal" />
   </div>
@@ -56,6 +59,13 @@ export default {
         .catch(error => {
           console.error('Error fetching quizzes', error);
         });
+    },
+    takeQuiz(quizId) {
+      // Logic to take the quiz and send data to the server
+      // Redirect the user to the company page after completing the quiz
+      // Implementation of this functionality will depend on your backend API
+      console.log('Taking quiz with ID:', quizId);
+      // Assuming some logic to send quiz data to the server and handle the response
     }
   },
   mounted() {
