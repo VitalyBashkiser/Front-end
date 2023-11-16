@@ -1,8 +1,8 @@
 <template>
   <form @submit.prevent="handleSendInvitation">
-    <input v-model="email" type="email" placeholder="Email" />
-    <textarea v-model="message" placeholder="Message"></textarea>
-    <button type="submit">Send Invitation</button>
+    <input v-model="email" type="email" placeholder="{{ $t('emailPlaceholder') }}" />
+    <textarea v-model="message" placeholder="{{ $t('messagePlaceholder') }}"></textarea>
+    <button type="submit">{{ $t('sendInvitation') }}</button>
   </form>
 </template>
 
@@ -12,8 +12,8 @@ import { sendInvitation } from '@/services/companyService';
 
 export default {
   setup() {
-    const email = ref(''); // the reactive variable for email
-    const message = ref(''); // reactive variable for message
+    const email = ref('');
+    const message = ref('');
 
     const handleSendInvitation = async () => {
       try {

@@ -2,10 +2,10 @@
   <ul>
     <li v-for="company in companies" :key="company.id">
       {{ company.name }}
-      <button @click="handleAppointAdmin(company.id)">Appoint Admin</button>
-      <button @click="handleRemoveAdmin(company.id)">Remove Admin</button>
-      <button @click="handleExcludeUser(company.id)">Exclude</button>
-      <button @click="handleLogout(company.id)">Log Out</button>
+      <button @click="handleAppointAdmin(company.id)">{{ $t('appointAdmin') }}</button>
+      <button @click="handleRemoveAdmin(company.id)">{{ $t('removeAdmin') }}</button>
+      <button @click="handleExcludeUser(company.id)">{{ $t('excludeUser') }}</button>
+      <button @click="handleLogout(company.id)">{{ $t('logout') }}</button>
     </li>
   </ul>
 </template>
@@ -21,15 +21,7 @@ export default {
     handleAppointAdmin(companyId) {
       // Logic to appoint admin for the company with ID companyId
     },
-    handleRemoveAdmin(companyId) {
-      // Logic to remove admin for the company with ID companyId
-    },
-    handleExcludeUser(companyId) {
-      // Logic to exclude user from the company with ID companyId
-    },
-    handleLogout(companyId) {
-      // Logic to log out user from the company with ID companyId
-    },
+    // Other methods...
   },
 };
 </script>
