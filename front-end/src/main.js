@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './router'
 import UniversalModal from './components/UniversalModal.vue';
 import store from './store'
+import i18n from './i18n';
 
 const i18n = createI18n({
   locale: 'en',
@@ -11,19 +12,19 @@ const i18n = createI18n({
   messages: {
     en: {
       greeting: 'Hello!',
-      appointAdmin: 'Appoint Admin',
-      removeAdmin: 'Remove Admin',
-      excludeUser: 'Exclude',
-      logout: 'Log Out',
-      emailPlaceholder: 'Email',
-      messagePlaceholder: 'Message',
-      sendInvitation: 'Send Invitation',
-      cancelInvitation: 'Cancel Invitation',
-      acceptInvitation: 'Accept Invitation',
-      cancelJoinRequest: 'Cancel Join Request',
-      acceptJoinRequest: 'Accept Join Request',
-      rejectJoinRequest: 'Reject Join Request',
-      removeAdmin: 'Remove Admin',
+        appointAdmin: 'Appoint Admin',
+        removeAdmin: 'Remove Admin',
+        excludeUser: 'Exclude',
+        logout: 'Log Out',
+        emailPlaceholder: 'Email',
+        messagePlaceholder: 'Message',
+        sendInvitation: 'Send Invitation',
+        cancelInvitation: 'Cancel Invitation',
+        acceptInvitation: 'Accept Invitation',
+        cancelJoinRequest: 'Cancel Join Request',
+        acceptJoinRequest: 'Accept Join Request',
+        rejectJoinRequest: 'Reject Join Request',
+        removeAdmin: 'Remove Admin',
       quiz: {
         companyQuizzes: 'Company Quizzes',
         createQuiz: 'Create Quiz',
@@ -33,12 +34,10 @@ const i18n = createI18n({
         frequency: 'Frequency',
         addQuestion: 'Add Question',
         createQuiz: 'Create Quiz'
-      }
       companyAnalytics: {
         title: 'Company Analytics',
         analyticsButton: 'Analytics',
         lastTestTaken: 'Last test taken:'
-      }
       userProfile: {
         title: 'User Profile',
         basicInformation: 'Basic Information',
@@ -52,10 +51,12 @@ const i18n = createI18n({
         confirmationMessage: 'Are you sure you want to leave this company?',
         yes: 'Yes',
         no: 'No',
-      }
       exportData: {
         json: 'Export as JSON',
         csv: 'Export as CSV',
+      notifications: {
+        title: 'Notifications',
+        markAsRead: 'Mark as Read',
       },
     },
     uk: {
@@ -82,12 +83,10 @@ const i18n = createI18n({
         frequency: 'Частота',
         addQuestion: 'Додати питання',
         createQuiz: 'Створити квіз'
-      }
       companyAnalytics: {
         title: 'Аналітика компанії',
         analyticsButton: 'Аналітика',
         lastTestTaken: 'Останній тест:'
-      }
       userProfile: {
         title: 'Профіль користувача',
         basicInformation: 'Основна інформація',
@@ -101,10 +100,12 @@ const i18n = createI18n({
         confirmationMessage: 'Ви впевнені, що хочете покинути цю компанію?',
         yes: 'Так',
         no: 'Ні',
-      }
       exportData: {
         json: 'Експорт у форматі JSON',
         csv: 'Експорт у форматі CSV',
+      notifications: {
+        title: 'Повідомлення',
+        markAsRead: 'Позначити як прочитане',
       },
     },
   },
