@@ -38,7 +38,21 @@ const i18n = createI18n({
         title: 'Company Analytics',
         analyticsButton: 'Analytics',
         lastTestTaken: 'Last test taken:'
-      },
+      }
+      userProfile: {
+      title: 'User Profile',
+      basicInformation: 'Basic Information',
+      name: 'Name',
+      email: 'Email',
+      about: 'About',
+      save: 'Save',
+      companies: 'Companies',
+      leave: 'Leave',
+      cumulativeRating: 'Cumulative Rating',
+      confirmationMessage: 'Are you sure you want to leave this company?',
+      yes: 'Yes',
+      no: 'No',
+      }
     },
     uk: {
       greeting: 'Привіт!',
@@ -69,6 +83,20 @@ const i18n = createI18n({
         title: 'Аналітика компанії',
         analyticsButton: 'Аналітика',
         lastTestTaken: 'Останній тест:'
+      }
+      userProfile: {
+      title: 'Профіль користувача',
+      basicInformation: 'Основна інформація',
+      name: "Ім'я",
+      email: 'Електронна пошта',
+      about: 'Про мене',
+      save: 'Зберегти',
+      companies: 'Компанії',
+      leave: 'Вийти',
+      cumulativeRating: 'Загальний рейтинг',
+      confirmationMessage: 'Ви впевнені, що хочете покинути цю компанію?',
+      yes: 'Так',
+      no: 'Ні',
       }
     },
   },
