@@ -11,11 +11,37 @@ const i18n = createI18n({
   messages: {
     en: {
       greeting: 'Hello!',
-      // ... add other keys and values for English
+      appointAdmin: 'Appoint Admin',
+      removeAdmin: 'Remove Admin',
+      excludeUser: 'Exclude',
+      logout: 'Log Out',
+      emailPlaceholder: 'Email',
+      messagePlaceholder: 'Message',
+      sendInvitation: 'Send Invitation',
+      cancelInvitation: 'Cancel Invitation',
+      acceptInvitation: 'Accept Invitation',
+      cancelJoinRequest: 'Cancel Join Request',
+      acceptJoinRequest: 'Accept Join Request',
+      rejectJoinRequest: 'Reject Join Request',
+      removeAdmin: 'Remove Admin',
+      // ... other keys and values for English
     },
     uk: {
       greeting: 'Привіт!',
-      // ... add other keys and values for Ukrainian
+      appointAdmin: 'Призначити адміністратора',
+      removeAdmin: 'Видалити адміністратора',
+      excludeUser: 'Виключити',
+      logout: 'Вийти',
+      emailPlaceholder: 'Електронна пошта',
+      messagePlaceholder: 'Повідомлення',
+      sendInvitation: 'Надіслати запрошення',
+      cancelInvitation: 'Скасувати запрошення',
+      acceptInvitation: 'Прийняти запрошення',
+      cancelJoinRequest: 'Скасувати запит на вступ',
+      acceptJoinRequest: 'Прийняти запит на вступ',
+      rejectJoinRequest: 'Відхилити запит на вступ',
+      removeAdmin: 'Видалити адміністратора',
+      // ... other keys and values for Ukrainian
     },
   },
 });

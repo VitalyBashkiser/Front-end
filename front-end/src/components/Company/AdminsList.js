@@ -2,7 +2,7 @@
   <ul>
     <li v-for="admin in admins" :key="admin.id">
       {{ admin.name }}
-      <button @click="handleRemoveAdmin(admin.id)">Remove Admin</button>
+      <button @click="handleRemoveAdmin(admin.id)">{{ $t('removeAdmin') }}</button>
     </li>
   </ul>
 </template>
