@@ -1,3 +1,16 @@
+<template>
+  <ul>
+    <li v-for="company in companies" :key="company.id">
+      {{ company.name }}
+      <button @click="handleAppointAdmin(company.id)">{{ $t('appointAdmin') }}</button>
+      <button @click="handleRemoveAdmin(company.id)">{{ $t('removeAdmin') }}</button>
+      <button @click="handleExcludeUser(company.id)">{{ $t('excludeUser') }}</button>
+      <button @click="handleLogout(company.id)">{{ $t('logout') }}</button>
+    </li>
+  </ul>
+</template>
+
+<script>
 import { mapState } from 'vuex';
 
 export default {
@@ -5,26 +18,10 @@ export default {
     ...mapState(['companies']),
   },
   methods: {
-    handleExcludeUser(userId) {
-      // Logic to exclude user with ID userId
+    handleAppointAdmin(companyId) {
+      // Logic to appoint admin for the company with ID companyId
     },
-
-    handleLogout(userId) {
-      // Logic to log out user with ID userId
-    },
-  },
-  render() {
-    return (
-      <ul>
-        {/* Map through members and display each */}
-        {this.companies.map((company) => (
-          <li key={company.id}>
-            {company.name}
-            <button onClick={() => this.handleExcludeUser(company.id)}>Exclude</button>
-            <button onClick={() => this.handleLogout(company.id)}>Log Out</button>
-          </li>
-        ))}
-      </ul>
-    );
+    // Other methods...
   },
 };
+</script>
