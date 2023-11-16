@@ -1,28 +1,34 @@
+<template>
+  <form @submit.prevent="handleSendInvitation">
+    <input v-model="email" type="email" placeholder="{{ $t('emailPlaceholder') }}" />
+    <textarea v-model="message" placeholder="{{ $t('messagePlaceholder') }}"></textarea>
+    <button type="submit">{{ $t('sendInvitation') }}</button>
+  </form>
+</template>
+
+<script>
 import { ref } from 'vue';
+import { sendInvitation } from '@/services/companyService';
 
 export default {
   setup() {
-    const handleSendInvitation = () => {
-      // Logic to send invitation
+    const email = ref('');
+    const message = ref('');
+
+    const handleSendInvitation = async () => {
+      try {
+        const response = await sendInvitation(email.value, message.value);
+        console.log('Invitation sent:', response);
+      } catch (error) {
+        console.error('Error sending invitation:', error);
+      }
     }
 
-    const email = ref(''); // the reactive variable for email
-    const message = ref(''); // reactive variable for message
-
     return {
-      handleSendInvitation,
       email,
       message,
+      handleSendInvitation,
     };
   },
-  render() {
-    return (
-      <form>
-        {/* Form fields for invitation (e.g., email, message) */}
-        <input v-model={this.email} type="email" placeholder="Email" />
-        <textarea v-model={this.message} placeholder="Message" />
-        <button onClick={this.handleSendInvitation}>Send Invitation</button>
-      </form>
-    );
-  },
 };
+</script>
