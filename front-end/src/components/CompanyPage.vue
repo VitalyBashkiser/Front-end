@@ -1,44 +1,40 @@
 <template>
   <div>
-    //Dropdown to change language
     <select v-model="selectedLanguage" @change="changeLanguage">
-      <option value="en">English</option>
-      <option value="uk">Ukrainian</option>
+        <option value="en">{{ $t('english') }}</option>
+        <option value="uk">{{ $t('ukrainian') }}</option>
     </select>
 
-    <h1>Company Quizzes</h1>
-    <button @click="openCreateQuizModal">Create Quiz</button>
-    //List of available quizzes
+    <h1>{{ $t('companyQuizzes') }}</h1>
+    <button @click="openCreateQuizModal">{{ $t('createQuiz') }}</button>
     <ul>
       <li v-for="quiz in quizzes" :key="quiz.id">
         <h3>{{ quiz.title }}</h3>
         <p>{{ quiz.description }}</p>
-        //Display other quiz details
       </li>
     </ul>
-    //Include the CreateQuizModal component
     <CreateQuizModal v-if="showCreateQuizModal" @close="closeCreateQuizModal" />
   </div>
 </template>
 
 <script>
-import CreateQuizModal from './CreateQuizModal.vue'; // Import the CreateQuizModal component
-import axios from 'axios'; // Import axios for making HTTP requests
+import CreateQuizModal from './CreateQuizModal.vue';
+import axios from 'axios';
 
 export default {
   data() {
     return {
       selectedLanguage: this.$i18n.locale,
       showCreateQuizModal: false,
-      quizzes: [] // Fetch quizzes data from backend and populate this array
+      quizzes: []
     };
   },
   components: {
-    CreateQuizModal // Register the CreateQuizModal component
+    CreateQuizModal
   },
   methods: {
     changeLanguage() {
-      this.$i18n.locale = this.selectedLanguage; // Change the language based on selection
+      this.$i18n.locale = this.selectedLanguage;
     },
     openCreateQuizModal() {
       this.showCreateQuizModal = true;
@@ -46,10 +42,8 @@ export default {
     closeCreateQuizModal() {
       this.showCreateQuizModal = false;
     },
-    // Fetch quizzes data from backend API
-    // This method can be triggered on component mount or whenever needed
     fetchQuizzes() {
-      axios.get('/api/quizzes/') // Assuming this endpoint returns the list of quizzes
+      axios.get('/api/quizzes/')
         .then(response => {
           this.quizzes = response.data;
         })
@@ -59,7 +53,7 @@ export default {
     }
   },
   mounted() {
-    this.fetchQuizzes(); // Fetch quizzes data on component mount
+    this.fetchQuizzes();
   }
 };
 </script>

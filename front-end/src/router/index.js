@@ -10,7 +10,14 @@ import UserList from '@/components/UserList.vue';
 import UserProfile from '@/components/UserProfile.vue';
 import CompanyList from '@/components/CompanyList.vue';
 import CompanyProfile from '@/components/CompanyProfile.vue';
-import store from '@/store/index';
+import store from '@/store/vuexStore';
+import AdminsList from '@/components/Company/AdminsList.vue';
+import CompanyInvitationForm from '@/components/Company/CompanyInvitationForm.vue';
+import CompanyMembersList from '@/components/Company/CompanyMembersList.vue';
+import InvitationsList from '@/components/Company/InvitationsList.vue';
+import JoinRequestsList from '@/components/Company/JoinRequestsList.vue';
+import UserInvitationsList from '@/components/Company/UserInvitationsList.vue';
+import UserJoinRequestsList from '@/components/User/UserJoinRequestsList.vue';
 
 // Create a reactive variable for UniversalModal
 const universalModal = ref({
@@ -46,8 +53,35 @@ const routes = ref([
   },
   {
     path: '/company-profile/:id',
-    name: 'company-profile',
     component: CompanyProfile,
+  },
+    {
+    path: '/admins-list',
+    component: AdminsList,
+  },
+  {
+    path: '/company-invitation-form',
+    component: CompanyInvitationForm,
+  },
+  {
+    path: '/company-members-list',
+    component: CompanyMembersList,
+  },
+    {
+    path: '/invitations-list',
+    component: InvitationsList,
+  },
+  {
+    path: '/join-requests-list',
+    component: JoinRequestsList,
+  },
+  {
+    path: '/user-invitations-list',
+    component: UserInvitationsList,
+  },
+  {
+    path: '/user-join-requests-list',
+    component: UserJoinRequestsList,
   },
 ]);
 

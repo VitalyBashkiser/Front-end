@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
   computed: {
-    ...mapState(['userJoinRequests']),
+    userJoinRequests() {
+      return this.$store.state.userJoinRequests;
+    }
   },
 };
 </script>

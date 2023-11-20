@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p>{{ testString }}</p>
-    <button @click="updateTestString('New Test String')">Change Test String</button>
+    <p>{{ $t(testString) }}</p>
+    <button @click="updateTestString('New Test String')">{{ $t('changeTestString') }}</button>
   </div>
 </template>
 
@@ -19,5 +19,24 @@ export default {
 </script>
 
 <style scoped>
-/* Your styles, if you need them */
+.test-string {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.change-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.change-button:hover {
+  background-color: #0056b3;
+}
 </style>
