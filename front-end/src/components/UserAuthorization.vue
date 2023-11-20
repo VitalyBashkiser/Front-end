@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { axiosInstance } from '@/api/axios.js';
 
 export default {
   data() {
@@ -25,7 +25,7 @@ export default {
   methods: {
     async loginUser() {
       try {
-        const response = await axios.post('/auth/token/login/', {
+        const response = await axiosInstance.post('/auth/token/login/', {
           username: this.username,
           password: this.password,
         });

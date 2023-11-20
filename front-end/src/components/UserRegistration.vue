@@ -17,8 +17,9 @@
     <button type="submit" class="submit-button">{{ $t('register') }}</button>
   </form>
 </template>
+
 <script>
-import axios from 'axios';
+import { axiosInstance } from '@/api/axios.js';
 
 export default {
   data() {
@@ -48,7 +49,7 @@ export default {
     },
     async register() {
       try {
-        const response = await axios.post('/auth/users/', {
+        const response = await axiosInstance.post('/auth/users/', {
           email: this.email,
           password: this.password,
           password_confirmation: this.confirmPassword,
