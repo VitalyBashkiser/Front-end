@@ -11,12 +11,12 @@ export default createStore({
   state: {
     testString: 'Hello, Vuex!',
     user: null,
-    users: [],
+    userList: [],
   },
   getters: {
     getTestString: state => state.testString,
     getUser: state => state.user,
-    getUsers: state => state.users,
+    getUsers: state => state.userList,
   },
   actions: {
     updateTestString: ({ commit }, newString) => {
@@ -39,7 +39,7 @@ export default createStore({
       state.user = user;
     },
     setUsers: (state, users) => {
-      state.users = users;
+      state.userList = users;
     },
   },
 });

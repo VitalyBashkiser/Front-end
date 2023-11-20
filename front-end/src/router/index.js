@@ -1,24 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { ref } from 'vue';
-import { openUniversalModal } from './/utils';
+import { openUniversalModal } from './utils';
 import { createAuth0, loginWithAuth0, handleAuth0Redirect } from '@/api/auth';
-import UniversalModal from '@/components/UniversalModal.vue'
-import AboutPage from '@/components/AboutPage.vue';
-import UserRegistration from '@/components/UserRegistration.vue';
-import UserAuthorization from '@/components/UserAuthorization.vue';
-import UserList from '@/components/UserList.vue';
-import UserProfile from '@/components/UserProfile.vue';
-import CompanyList from '@/components/CompanyList.vue';
-import CompanyProfile from '@/components/CompanyProfile.vue';
-import store from '@/store/index';
+import store from '@/store/vuexStore';
+const UniversalModal = () => import('@/components/UniversalModal.vue');
+const AboutPage = () => import('@/components/AboutPage.vue');
+const UserRegistration = () => import('@/components/UserRegistration.vue');
+const UserAuthorization = () => import('@/components/UserAuthorization.vue');
+const UserList = () => import('@/components/UserList.vue');
+const UserProfile = () => import('@/components/UserProfile.vue');
+const CompanyList = () => import('@/components/CompanyList.vue');
+const CompanyProfile = () => import('@/components/CompanyProfile.vue');
+const AdminsList = () => import('@/components/Company/AdminsList.vue');
+const CompanyInvitationForm = () => import('@/components/Company/CompanyInvitationForm.vue');
+const CompanyMembersList = () => import('@/components/Company/CompanyMembersList.vue');
+const InvitationsList = () => import('@/components/Company/InvitationsList.vue');
+const JoinRequestsList = () => import('@/components/Company/JoinRequestsList.vue');
+const UserInvitationsList = () => import('@/components/Company/UserInvitationsList.vue');
+const UserJoinRequestsList = () => import('@/components/User/UserJoinRequestsList.vue');
 
-// Create a reactive variable for UniversalModal
-const universalModal = ref({
-  title: '',
-  visible: false
-});
 
-// Define routes inside a ref
 const routes = ref([
   {
     path: '/',
@@ -46,14 +47,41 @@ const routes = ref([
   },
   {
     path: '/company-profile/:id',
-    name: 'company-profile',
     component: CompanyProfile,
+  },
+  {
+    path: '/admins-list',
+    component: AdminsList,
+  },
+  {
+    path: '/company-invitation-form',
+    component: CompanyInvitationForm,
+  },
+  {
+    path: '/company-members-list',
+    component: CompanyMembersList,
+  },
+  {
+    path: '/invitations-list',
+    component: InvitationsList,
+  },
+  {
+    path: '/join-requests-list',
+    component: JoinRequestsList,
+  },
+  {
+    path: '/user-invitations-list',
+    component: UserInvitationsList,
+  },
+  {
+    path: '/user-join-requests-list',
+    component: UserJoinRequestsList,
   },
 ]);
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: routes.value // Access the routes via `.value`
+  routes: routes.value
 });
 
 router.beforeEach(async (to, from, next) => {
@@ -61,12 +89,9 @@ router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
   if (requiresAuth && !isAuthenticated) {
-    // If the route requires authentication and the user is not authenticated,
-    // redirect to the authorization page using Auth0
     await createAuth0();
     await loginWithAuth0();
   } else if (to.name === 'callback') {
-    // If it is an Auth0 callback route, process it
     const user = await handleAuth0Redirect();
     localStorage.setItem('accessToken', user.sub);
     store.commit('setUser', user);
@@ -77,4 +102,4 @@ router.beforeEach(async (to, from, next) => {
 });
 
 export default router;
-export { universalModal, UniversalModal, openUniversalModal };
+export { UniversalModal, openUniversalModal };

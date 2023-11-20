@@ -11,17 +11,25 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
   computed: {
-    ...mapState(['companies']),
+    companies() {
+      return this.$store.state.companies;
+    }
   },
   methods: {
     handleAppointAdmin(companyId) {
-      // Logic to appoint admin for the company with ID companyId
+      this.$store.dispatch('appointAdmin', companyId);
     },
-    // Other methods...
+    handleRemoveAdmin(companyId) {
+      this.$store.dispatch('removeAdminForCompany', companyId);
+    },
+    handleExcludeUser(companyId) {
+      this.$store.dispatch('excludeUser', companyId);
+    },
+    handleLogout(companyId) {
+      this.$store.dispatch('logoutCompany', companyId);
+    },
   },
 };
 </script>

@@ -16,23 +16,21 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
   computed: {
-    ...mapState(['joinRequests']),
+    joinRequests() {
+      return this.$store.state.joinRequests;
+    }
   },
   methods: {
     handleAcceptRequest(requestId) {
-      // Logic to accept request with ID requestId
+      this.$store.dispatch('acceptRequest', requestId);
     },
-
     handleCancelRequest(requestId) {
-      // Logic to cancel request with ID requestId
+      this.$store.dispatch('cancelRequest', requestId);
     },
-
     handleRejectRequest(requestId) {
-      // Logic to reject request with ID requestId
+      this.$store.dispatch('rejectRequest', requestId);
     },
   },
 };

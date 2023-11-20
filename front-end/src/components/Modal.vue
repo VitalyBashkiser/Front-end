@@ -1,23 +1,61 @@
 <template>
-  <div class="custom-modal">
+  <div class="modal" v-show="visible">
     <div class="modal-content">
+      <span class="close" @click="closeModal">&times;</span>
       <slot></slot>
-      <button @click="closeModal">Close</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
+    }
+  },
   methods: {
     closeModal() {
-      this.$emit('close'); // This method calls the 'close' event when the 'Close' button is clicked in the modal window.
+      this.$emit('close');
     }
   }
 };
 </script>
 
 <style scoped>
-/* Styles of the modal component */
-</style>
+/* Стили для модального окна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
 
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>

@@ -13,19 +13,18 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
   computed: {
-    ...mapState(['invitations']),
+    invitations() {
+      return this.$store.state.invitations;
+    }
   },
   methods: {
     handleCancelInvitation(invitationId) {
-      // Logic to cancel invitation with ID invitationId
+      this.$store.dispatch('cancelInvitation', invitationId);
     },
-
     handleAcceptInvitation(invitationId) {
-      // Logic to accept invitation with ID invitationId
+      this.$store.dispatch('acceptInvitation', invitationId);
     },
   },
 };

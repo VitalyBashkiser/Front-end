@@ -1,9 +1,9 @@
 <template>
   <div v-if="visible" class="universal-modal">
     <div class="modal-content">
-      <h2>{{ title }}</h2>
+      <h2>{{ $t(title) }}</h2>
       <slot></slot>
-      <button @click="closeModal">Close</button>
+      <button @click="closeModal">{{ $t('closeModal') }}</button>
     </div>
   </div>
 </template>
@@ -12,7 +12,7 @@
 export default {
   props: {
     title: String,
-    visible: Boolean // Add props to control the visibility of the modal window
+    visible: Boolean
   },
   methods: {
     closeModal() {
